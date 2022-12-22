@@ -1,0 +1,22 @@
+.sectionTotal {
+    border-top: 1px solid #CFCFCF;
+    padding: 40px 55px 40px 40px;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000;
+
+        &:not(:first-child) {
+            margin-top: 15px;
+        }
+
+        &:last-child {
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+}

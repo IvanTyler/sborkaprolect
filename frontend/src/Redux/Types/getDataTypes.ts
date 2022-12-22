@@ -1,7 +1,20 @@
+import { IBasket } from "../../Interfaces/interface";
+
 export enum GetDataActionTypesEnum {
     GET_DATA_GOODS = 'GET_DATA_GOODS',
     GET_DATA_ERROR = 'GET_DATA_ERROR',
+    GET_PRODUCT = 'GET_ID_PRODUCT',
 }
+
+export enum IncrementDecrementActionTypesEnum {
+    INCREMENT = 'INCREMENT',
+    DECREMENT = 'DECREMENT',
+}
+
+export enum deleteProductActionTypesEnum {
+    DELETE_PRODUCT = 'DELETE_PRODUCT',
+}
+
 
 export interface GetDataAction {
     type: GetDataActionTypesEnum.GET_DATA_GOODS;
@@ -13,4 +26,36 @@ export interface GetDataErrorAction {
     payload: string;
 }
 
-export type getDataActionType = GetDataAction | GetDataErrorAction
+export interface GetIdProductsAction {
+    type: GetDataActionTypesEnum.GET_PRODUCT;
+    product: IBasket;
+}
+
+export interface GetIdProductsAction {
+    type: GetDataActionTypesEnum.GET_PRODUCT;
+    product: IBasket;
+}
+
+export interface incrementCountProduct {
+    type: IncrementDecrementActionTypesEnum.INCREMENT;
+    id: string;
+    price: number;
+}
+
+export interface decrementCountProduct {
+    type: IncrementDecrementActionTypesEnum.DECREMENT;
+    id: string;
+    price: number;
+}
+
+export interface deleteProduct {
+    type: deleteProductActionTypesEnum.DELETE_PRODUCT;
+    id: string;
+}
+
+export type getDataActionType = GetDataAction
+    | GetDataErrorAction
+    | GetIdProductsAction
+    | incrementCountProduct
+    | decrementCountProduct
+    | deleteProduct

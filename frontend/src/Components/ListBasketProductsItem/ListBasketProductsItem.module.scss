@@ -1,0 +1,52 @@
+.listBasketProductsItem {
+    &:not(:first-child) {
+        margin-top: 64px;
+    }
+
+    &__basket {
+        display: flex;
+    }
+
+    &__img {
+        width: 90px;
+        height: 51px;
+        margin-top: auto;
+        transform: translateY(9px);
+    }
+
+    &__description {
+        margin-left: 18px;
+    }
+
+    &__title {
+        max-width: 202px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000;
+    }
+
+    &__addDeleteCountProduct {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    &__iconDecreaseOpacity {
+        opacity: 0.5;
+    }
+
+    &__count {
+        margin: 0 18px;
+    }
+
+    &__price {
+        margin-left: 25px;
+    }
+
+    &__iconDeleteProduct {
+        display: flex;
+        align-self: flex-start;
+        cursor: pointer;
+    }
+}

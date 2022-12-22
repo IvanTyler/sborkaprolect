@@ -10,3 +10,11 @@ export interface IImages {
     small: string;
     big: string;
 }
+
+export interface IBasket {
+    id: string;
+    count: number;
+    name: string;
+    price: number;
+    image: string;
+}
