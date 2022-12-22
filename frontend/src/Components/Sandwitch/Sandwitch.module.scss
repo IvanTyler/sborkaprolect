@@ -1,0 +1,14 @@
+.sandwitch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 22px;
+    width: 29px;
+    cursor: pointer;
+    margin-left: 26px;
+
+    &__item {
+        height: 2px;
+        background-color: #000;
+    }
+}
