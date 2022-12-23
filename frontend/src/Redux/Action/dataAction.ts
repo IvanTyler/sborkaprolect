@@ -28,23 +28,25 @@ export const getIDProduct = (product: IBasket) => {
     }
 }
 
-export const incrementCountProduct = (id: string, price: number | undefined) => {
+export const incrementCountProduct = (id: number, count: number | undefined, price: number | undefined) => {
     return {
         type: IncrementDecrementActionTypesEnum.INCREMENT,
         id,
+        count,
         price,
     }
 }
 
-export const decrementCountProduct = (id: string, price: number | undefined) => {
+export const decrementCountProduct = (id: number, count: number | undefined, price: number | undefined) => {
     return {
         type: IncrementDecrementActionTypesEnum.DECREMENT,
         id,
+        count,
         price,
     }
 }
 
-export const deleteProductToBasket = (id: string) => {
+export const deleteProductToBasket = (id: number) => {
     return {
         type: deleteProductActionTypesEnum.DELETE_PRODUCT,
         id,

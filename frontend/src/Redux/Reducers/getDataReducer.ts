@@ -16,8 +16,8 @@ export const getDataReducer = (state = initState, action: getDataActionType): IG
                     if (el.id === action.id) {
                         return {
                             ...el,
-                            count: el.count += 1,
-                            price: el.price += action.price
+                            count: action.count,
+                            price: action.price,
                         }
                     }
                     return el
@@ -29,15 +29,15 @@ export const getDataReducer = (state = initState, action: getDataActionType): IG
                     if (el.id === action.id) {
                         return {
                             ...el,
-                            count: el.count > 1 ? el.count -= 1 : el.count,
-                            price: el.price > action.price ? el.price -= action.price : el.price
+                            count: action.count,
+                            price: action.price,
                         }
                     }
                     return el
                 })
             }
         case deleteProductActionTypesEnum.DELETE_PRODUCT:
-            return { ...state, basket: state.basket.filter((el: IBasket) => el.id !== action.id)}
+            return { ...state, basket: state.basket.filter((el: IBasket) => el.id !== action.id) }
         default:
             return state
     }

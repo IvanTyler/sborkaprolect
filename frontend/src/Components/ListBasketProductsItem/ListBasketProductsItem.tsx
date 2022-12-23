@@ -19,21 +19,40 @@ export const ListBasketProductsItem: FC<itemProps> = ({ item }) => {
 
     const dispath = useDispatch()
 
-    const { products } = useGetData()
+    const { products, basket } = useGetData()
 
-    const findPrice = (name: string) => products.find((el: any) => el.name === name)?.price
+    const findPrice = (name: string) => products.find((el: any) => el.name === name)
 
-    const increaseCountProduct = (id: string, name: string) => {
-        const priceProduct = findPrice(name)
-        dispath(incrementCountProduct(id, priceProduct))
+    const countingQuantitypriceProducts = (id: number, name: string) => {
+        const price: number | undefined = findPrice(name)?.price
+
+        let count: number | undefined = basket.find((el: IBasket) => el.id === id)?.count
+        let priceBasketProduct: number | undefined = basket.find((el: IBasket) => el.id === id)?.price
+
+        return { count, priceBasketProduct, price }
     }
 
-    const decreaseCountProduct = (id: string, name: string) => {
-        const priceProduct = findPrice(name)
-        dispath(decrementCountProduct(id, priceProduct))
+    const increaseCountProduct = (id: number, name: string) => {
+
+        let { count, priceBasketProduct, price } = countingQuantitypriceProducts(id, name)
+
+        const sumCountProduct = count! += 1;
+        const sumPriceProduct = priceBasketProduct! += price!;
+        dispath(incrementCountProduct(id, sumCountProduct, sumPriceProduct))
     }
 
-    const deleteProductToBaset = (id: string) => dispath(deleteProductToBasket(id))
+    const decreaseCountProduct = (id: number, name: string) => {
+
+        let { count, priceBasketProduct, price } = countingQuantitypriceProducts(id, name)
+
+        if (count! > 1) {
+            const sumCountProduct = count! -= 1;
+            const sumPriceProduct = priceBasketProduct! -= price!;
+            dispath(decrementCountProduct(id, sumCountProduct, sumPriceProduct))
+        }
+    }
+
+    const deleteProductToBaset = (id: number) => dispath(deleteProductToBasket(id))
 
     return (
         <li className={style.listBasketProductsItem}>
@@ -57,6 +76,7 @@ export const ListBasketProductsItem: FC<itemProps> = ({ item }) => {
                             {item.count}
                         </span>
                         <img
+                            className={style.listBasketProductsItem__iconIncrease}
                             src={iconIncrementProduct} alt="увеличить количество товара"
                             onClick={() => increaseCountProduct(item.id, item.name)}
                         />

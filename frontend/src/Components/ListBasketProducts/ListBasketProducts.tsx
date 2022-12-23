@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useGetData } from '../../Hooks/useGetData';
-import { IBasket, IProducts } from '../../Interfaces/interface';
+import { IBasket } from '../../Interfaces/interface';
 import List from '../List/List';
 import { ListBasketProductsItem } from '../ListBasketProductsItem/ListBasketProductsItem';
 import style from './ListBasketProducts.module.scss'

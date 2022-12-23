@@ -1,8 +1,9 @@
 export interface IProducts {
-    id: string;
+    id: number;
     name: string;
     link: string;
     price: number;
+    modelNumber: string;
     image: IImages;
 }
 
@@ -12,7 +13,7 @@ export interface IImages {
 }
 
 export interface IBasket {
-    id: string;
+    id: number;
     count: number;
     name: string;
     price: number;

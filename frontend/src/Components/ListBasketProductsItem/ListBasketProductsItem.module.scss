@@ -19,7 +19,7 @@
     }
 
     &__title {
-        max-width: 202px;
+        width: 202px;
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
@@ -33,7 +33,12 @@
     }
 
     &__iconDecreaseOpacity {
-        opacity: 0.5;
+        opacity: 0.3;
+    }
+
+    &__iconDecrease,
+    &__iconIncrease {
+        cursor: pointer;
     }
 
     &__count {

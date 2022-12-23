@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useGetData } from '../../Hooks/useGetData'
 import { IProducts } from '../../Interfaces/interface'
-import { ListProductsItem } from '../ListProductsItem/ListProductsItem'
+import { ListProductsItem } from '../Catalog/ListProductsItem/ListProductsItem'
 import List from '../List/List'
 import style from './ListProducts.module.scss'
 

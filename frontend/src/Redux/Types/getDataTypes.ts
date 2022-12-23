@@ -31,26 +31,23 @@ export interface GetIdProductsAction {
     product: IBasket;
 }
 
-export interface GetIdProductsAction {
-    type: GetDataActionTypesEnum.GET_PRODUCT;
-    product: IBasket;
-}
-
 export interface incrementCountProduct {
     type: IncrementDecrementActionTypesEnum.INCREMENT;
-    id: string;
+    id: number;
+    count: number;
     price: number;
 }
 
 export interface decrementCountProduct {
     type: IncrementDecrementActionTypesEnum.DECREMENT;
-    id: string;
+    id: number;
+    count: number;
     price: number;
 }
 
 export interface deleteProduct {
     type: deleteProductActionTypesEnum.DELETE_PRODUCT;
-    id: string;
+    id: number;
 }
 
 export type getDataActionType = GetDataAction

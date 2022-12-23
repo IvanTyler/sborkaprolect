@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Basket } from '../Basket/Basket'
 import { Container } from '../Container/Container'
-import { Products } from '../Products/Products'
+import { Products } from '../Catalog/Products/Products'
 import style from './Main.module.scss'
 
 export const Main: FC = () => {
