@@ -8,20 +8,18 @@ import { Link } from "react-router-dom";
 import { Sandwitch } from "../Sandwitch/Sandwitch";
 import { useGetData } from "../../Hooks/useGetData";
 import { IBasket } from "../../Interfaces/interface";
+import { useDispatch } from "react-redux";
+import { openSidebarBasketFunc } from "../../Redux/Action/dataAction";
 
 export const Header: FC = () => {
 
-    const { basket } = useGetData()
+    const dispath = useDispatch()
+
+    const { basket, openSidebarBasket } = useGetData()
+
     const countProducts = basket.reduce((acc: number, curr: IBasket) => acc + curr.count, 0)
 
-    const [dimensions, setDimensions] = useState<number>(window.innerWidth)
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
-
-    const handleResize = () => setDimensions(prev => prev = window.innerWidth)
+    const openBasket = () => dispath(openSidebarBasketFunc(false))
 
     return (
         <header className={style.header}>
@@ -35,7 +33,7 @@ export const Header: FC = () => {
                         <span className={style.header__basketCount}>{countProducts}</span>
                         <img src={basketIcon} alt="basket" className={style.header__iconBasket} />
                     </div>
-                    {dimensions <= 1130 && <Sandwitch />}
+                    {openSidebarBasket && <Sandwitch openBasket={openBasket} />}
                 </div>
             </Container>
         </header>

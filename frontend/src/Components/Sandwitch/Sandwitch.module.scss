@@ -1,11 +1,15 @@
 .sandwitch {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     height: 22px;
     width: 29px;
     cursor: pointer;
     margin-left: 26px;
+
+    @media (max-width: 1080px) {
+        display: flex;
+    }
 
     &__item {
         height: 2px;

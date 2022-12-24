@@ -3,9 +3,34 @@
     max-width: 410px;
     border-left: 1px solid #CFCFCF;
     border-right: 1px solid #CFCFCF;
+    background-color: #fff;
+
+    @media (max-width: 1080px) {
+        display: none;
+        position: fixed;
+        top: 81px;
+        right: 0;
+        bottom: 0;
+        border-right: none;
+    }
 
     &__basket {
         padding: 40px 40px 64px;
+
+        @media (max-width: 1080px) {
+            padding-top: 30px;
+        }
+    }
+
+    &__closeBasketIcon {
+        display: none;
+        margin-left: auto;
+        margin-bottom: 30px;
+        cursor: pointer;
+
+        @media (max-width: 1080px) {
+            display: flex;
+        }
     }
 
     &__title {
@@ -22,4 +47,8 @@
         font-size: 25px;
         height: 100px;
     }
+}
+
+.openSidebar {
+    display: block;
 }

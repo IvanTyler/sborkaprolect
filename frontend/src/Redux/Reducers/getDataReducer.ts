@@ -1,6 +1,6 @@
 import { IBasket } from "../../Interfaces/interface";
 import { IGetData, initState } from "../initState";
-import { deleteProductActionTypesEnum, getDataActionType, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum } from "../Types/getDataTypes";
+import { deleteProductActionTypesEnum, getDataActionType, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "../Types/getDataTypes";
 
 export const getDataReducer = (state = initState, action: getDataActionType): IGetData => {
     switch (action.type) {
@@ -38,6 +38,8 @@ export const getDataReducer = (state = initState, action: getDataActionType): IG
             }
         case deleteProductActionTypesEnum.DELETE_PRODUCT:
             return { ...state, basket: state.basket.filter((el: IBasket) => el.id !== action.id) }
+        case openSidebarBasketActionEnum.OPEN_SIDEBAR:
+            return { ...state, openSidebarBasket: action.open }
         default:
             return state
     }

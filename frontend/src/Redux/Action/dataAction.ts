@@ -2,7 +2,7 @@ import axios from "axios";
 import { Dispatch } from "react";
 import { BACKEND_HOST } from "../../Constants/constants";
 import { IBasket, IProducts } from "../../Interfaces/interface";
-import { deleteProductActionTypesEnum, getDataActionType, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum } from "../Types/getDataTypes";
+import { deleteProductActionTypesEnum, getDataActionType, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "../Types/getDataTypes";
 
 export const getDataFetch = () => {
     return async (dispath: Dispatch<getDataActionType>) => {
@@ -50,5 +50,12 @@ export const deleteProductToBasket = (id: number) => {
     return {
         type: deleteProductActionTypesEnum.DELETE_PRODUCT,
         id,
+    }
+}
+
+export const openSidebarBasketFunc = (open: boolean) => {
+    return {
+        type: openSidebarBasketActionEnum.OPEN_SIDEBAR,
+        open,
     }
 }

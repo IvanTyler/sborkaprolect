@@ -1,12 +1,10 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { BACKEND_HOST } from '../../../Constants/constants'
-import { IBasket, IProducts } from '../../../Interfaces/interface'
+import { IProducts } from '../../../Interfaces/interface'
 import style from './ListProductsItem.module.scss'
 import addToBasketIcon from '../../../assets/images/common/basketWhite.svg'
-import { useGetData } from '../../../Hooks/useGetData'
-import { useDispatch } from 'react-redux'
-import { getIDProduct } from '../../../Redux/Action/dataAction'
+import { useAddProductToBasket } from '../Common/Hooks/useAddProductToBasket'
 
 interface itemProps {
     item: IProducts
@@ -14,22 +12,7 @@ interface itemProps {
 
 export const ListProductsItem: FC<itemProps> = ({ item }) => {
 
-    const dispatch = useDispatch()
-    const { products } = useGetData()
-
-    const findProduct = (id: number) => {
-        const findProduct = products.find((el: IProducts) => el.id === id)
-
-        const newProduct: IBasket = {
-            id: Math.floor(Math.random() * (999999999 - 100000000) + 100000000),
-            count: 1,
-            name: findProduct!.name,
-            price: findProduct!.price,
-            image: findProduct!.image.small,
-        }
-
-        dispatch(getIDProduct(newProduct))
-    }
+    const { findProductFunc } = useAddProductToBasket()
 
     return (
         <li className={style.listProductsItem}>
@@ -47,7 +30,7 @@ export const ListProductsItem: FC<itemProps> = ({ item }) => {
                 <div className={style.listProductsItem__addToBasketPtoduct}>
                     <button
                         className={style.listProductsItem__buttonAddToBasket}
-                        onClick={() => findProduct(item.id)}
+                        onClick={() => findProductFunc(item.id)}
                     >
                         <img src={addToBasketIcon} alt="add to basket" className={style.header__iconBasket} />
                     </button>

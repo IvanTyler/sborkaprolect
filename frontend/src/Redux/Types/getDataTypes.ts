@@ -15,6 +15,9 @@ export enum deleteProductActionTypesEnum {
     DELETE_PRODUCT = 'DELETE_PRODUCT',
 }
 
+export enum openSidebarBasketActionEnum {
+    OPEN_SIDEBAR = 'OPEN_SIDEBAR',
+}
 
 export interface GetDataAction {
     type: GetDataActionTypesEnum.GET_DATA_GOODS;
@@ -31,28 +34,34 @@ export interface GetIdProductsAction {
     product: IBasket;
 }
 
-export interface incrementCountProduct {
+export interface incrementCountProductAction {
     type: IncrementDecrementActionTypesEnum.INCREMENT;
     id: number;
     count: number;
     price: number;
 }
 
-export interface decrementCountProduct {
+export interface decrementCountProductAction {
     type: IncrementDecrementActionTypesEnum.DECREMENT;
     id: number;
     count: number;
     price: number;
 }
 
-export interface deleteProduct {
+export interface deleteProductAction {
     type: deleteProductActionTypesEnum.DELETE_PRODUCT;
     id: number;
+}
+
+export interface openSidebarBasketAction {
+    type: openSidebarBasketActionEnum.OPEN_SIDEBAR;
+    open: boolean;
 }
 
 export type getDataActionType = GetDataAction
     | GetDataErrorAction
     | GetIdProductsAction
-    | incrementCountProduct
-    | decrementCountProduct
-    | deleteProduct
+    | incrementCountProductAction
+    | decrementCountProductAction
+    | deleteProductAction
+    | openSidebarBasketAction
