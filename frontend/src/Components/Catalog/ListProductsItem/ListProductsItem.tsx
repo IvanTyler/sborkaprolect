@@ -31,11 +31,12 @@ export const ListProductsItem: FC<itemProps> = ({ item }) => {
                     <button
                         className={style.listProductsItem__buttonAddToBasket}
                         onClick={() => findProductFunc(item.id)}
+                        disabled={item.itemInCart}
                     >
                         <img src={addToBasketIcon} alt="add to basket" className={style.header__iconBasket} />
                     </button>
                     <span className={style.listProductsItem__price}>
-                        $ {item.price}
+                        $ {item.price} {item.itemInCart}
                     </span>
                 </div>
             </div>

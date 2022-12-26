@@ -6,8 +6,14 @@
 }
 
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
     height: 81px;
     border-bottom: 1px solid #CFCFCF;
+    background-color: #fff;
 
     &__bascket {
         position: relative;

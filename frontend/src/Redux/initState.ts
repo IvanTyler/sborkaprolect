@@ -2,7 +2,7 @@ import { IBasket, IProducts } from "../Interfaces/interface";
 
 export interface IGetData {
     products: IProducts[];
-    basket: IBasket[];
+    basket: any[];
     openSidebarBasket: boolean;
     error: null | string;
 }

@@ -4,6 +4,7 @@ export interface IProducts {
     link: string;
     price: number;
     modelNumber: string;
+    itemInCart: boolean;
     image: IImages;
 }
 

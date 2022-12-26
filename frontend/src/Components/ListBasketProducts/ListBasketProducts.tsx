@@ -7,7 +7,10 @@ import style from './ListBasketProducts.module.scss'
 
 export const ListBasketProducts: FC = () => {
 
-    const { basket } = useGetData()
+    let { basket } = useGetData()
+
+    
+
 
     return (
         <ul className={style.listBasketProducts}>

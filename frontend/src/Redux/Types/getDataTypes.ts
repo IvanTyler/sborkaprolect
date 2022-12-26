@@ -13,6 +13,7 @@ export enum IncrementDecrementActionTypesEnum {
 
 export enum deleteProductActionTypesEnum {
     DELETE_PRODUCT = 'DELETE_PRODUCT',
+    GET_DATA_SESSION_STORAGE = 'GET_DATA_SESSION_STORAGE',
 }
 
 export enum openSidebarBasketActionEnum {
@@ -31,6 +32,11 @@ export interface GetDataErrorAction {
 
 export interface GetIdProductsAction {
     type: GetDataActionTypesEnum.GET_PRODUCT;
+    product: IBasket;
+}
+
+export interface GetSessionStorageBasketCount {
+    type: deleteProductActionTypesEnum.GET_DATA_SESSION_STORAGE;
     product: IBasket;
 }
 

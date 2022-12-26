@@ -6,11 +6,13 @@ import style from './Basket.module.scss'
 import closeBasketIcon from '../../assets/images/common/closeBasket.svg'
 import { openSidebarBasketFunc } from '../../Redux/Action/dataAction'
 import { useDispatch } from 'react-redux'
-
+import { IBasket } from '../../Interfaces/interface'
 
 export const Basket: FC = () => {
 
     const { basket, openSidebarBasket } = useGetData()
+    console.log(basket);
+    
     const dispath = useDispatch()
 
     const openBasket = () => dispath(openSidebarBasketFunc(true))

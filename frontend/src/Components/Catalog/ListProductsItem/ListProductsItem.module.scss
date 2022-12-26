@@ -4,6 +4,13 @@
     border: 1px solid #E7E7E7;
     border-radius: 3px;
 
+    @media (max-width: 410px) {
+        margin: 25px 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
     &__wrapperImg {
         width: 100%;
         padding: 29px 11px;

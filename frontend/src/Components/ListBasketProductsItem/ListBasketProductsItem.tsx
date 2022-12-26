@@ -84,11 +84,12 @@ export const ListBasketProductsItem: FC<itemProps> = ({ item }) => {
                             {item.price}
                         </span>
                     </div>
+                    <img
+                        onClick={() => deleteProductToBaset(item.id)}
+                        className={style.listBasketProductsItem__iconDeleteProduct}
+                        src={deleteProduct} alt="delete-product"
+                    />
                 </div>
-                <img
-                    onClick={() => deleteProductToBaset(item.id)}
-                    className={style.listBasketProductsItem__iconDeleteProduct}
-                    src={deleteProduct} alt="delete-product" />
             </div>
         </li>
     )

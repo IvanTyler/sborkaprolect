@@ -5,6 +5,10 @@
 
     &__basket {
         display: flex;
+
+        @media (max-width: 430px) {
+            flex-direction: column;
+        }
     }
 
     &__img {
@@ -15,7 +19,13 @@
     }
 
     &__description {
+        position: relative;
         margin-left: 18px;
+
+        @media (max-width: 430px) {
+            margin-left: 0;
+            margin-top: 15px;
+        }
     }
 
     &__title {
@@ -24,6 +34,10 @@
         font-size: 14px;
         line-height: 16px;
         color: #000;
+
+        @media (max-width: 430px) {
+            width: inherit;
+        }
     }
 
     &__addDeleteCountProduct {
@@ -50,8 +64,16 @@
     }
 
     &__iconDeleteProduct {
+        position: absolute;
+        top: 0;
+        right: -19px;
         display: flex;
         align-self: flex-start;
         cursor: pointer;
+
+        @media (max-width: 430px) {
+            right: 0;
+            top: calc(-66px + 9px);
+        }
     }
 }
