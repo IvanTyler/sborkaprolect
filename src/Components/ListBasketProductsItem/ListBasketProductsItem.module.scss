@@ -38,6 +38,7 @@
         font-size: 14px;
         line-height: 16px;
         color: #000;
+        font-family: 'Roboto';
 
         @media (max-width: 430px) {
             width: inherit;
@@ -60,11 +61,13 @@
     }
 
     &__count {
+        font-family: 'Roboto';
         margin: 0 18px;
     }
 
     &__price {
         margin-left: 25px;
+        font-family: 'Roboto';
     }
 
     &__iconDeleteProduct {

@@ -1,4 +1,3 @@
-import { FC } from "react";
 
 interface listProps<T> {
     items: T[];

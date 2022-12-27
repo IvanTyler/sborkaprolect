@@ -10,6 +10,7 @@
         line-height: 17px;
         color: #000;
 
+
         &:not(:first-child) {
             margin-top: 15px;
         }
@@ -18,5 +19,9 @@
             font-weight: 700;
             font-size: 16px;
         }
+    }
+
+    &__title, &__price {
+        font-family: 'Roboto';
     }
 }

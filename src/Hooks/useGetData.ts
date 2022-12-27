@@ -11,7 +11,7 @@ export const useGetData = () => {
     }, [])
 
     const { products, openSidebarBasket } = useTypeSelector(state => state.data)
-    const {  basket } = useTypeSelector(state => state.basket)
+    const { basket } = useTypeSelector(state => state.basket)
 
 
     return { products, basket, openSidebarBasket }

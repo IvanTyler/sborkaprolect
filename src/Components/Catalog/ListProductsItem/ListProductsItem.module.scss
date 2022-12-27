@@ -6,6 +6,7 @@
 
     @media (max-width: 410px) {
         margin: 25px 0;
+
         &:first-child {
             margin-top: 0;
         }
@@ -40,13 +41,14 @@
         font-size: 14px;
         line-height: 17px;
         color: #000;
+        font-family: 'Roboto';
     }
-    
+
     &__title a {
         font-weight: 700;
     }
 
-    &__price{
+    &__price {
         font-weight: 400;
     }
 
