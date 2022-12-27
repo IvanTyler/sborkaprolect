@@ -1,4 +1,3 @@
-import { IBasket } from "../../Interfaces/interface";
 import { IGetData, initState } from "../initState";
 import { GetDataActionTypesEnum, openSidebarBasketActionEnum } from "../Types/enums";
 import { getDataActionType } from "../Types/getDataTypes";
