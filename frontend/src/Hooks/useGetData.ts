@@ -10,7 +10,9 @@ export const useGetData = () => {
         dispath(getDataFetch())
     }, [])
 
-    const { products, basket, openSidebarBasket } = useTypeSelector(state => state.data)
+    const { products, openSidebarBasket } = useTypeSelector(state => state.data)
+    const {  basket } = useTypeSelector(state => state.basket)
+
 
     return { products, basket, openSidebarBasket }
 }

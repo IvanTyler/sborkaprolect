@@ -11,15 +11,18 @@ import {
     REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to
+import { basketReducer } from "../Reducers/basketReducer";
 
 
 const persistConfig = {
     key: 'root',
     storage,
+    whitelist: ['basket']
 }
 
 const rootReducer = combineReducers({
     data: getDataReducer,
+    basket: basketReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

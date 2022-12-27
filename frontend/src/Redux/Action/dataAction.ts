@@ -1,16 +1,16 @@
-import axios from "axios";
 import { Dispatch } from "react";
-import { BACKEND_HOST } from "../../Constants/constants";
-import { IBasket, IProducts } from "../../Interfaces/interface";
-import { deleteProductActionTypesEnum, getDataActionType, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "../Types/getDataTypes";
+import { IBasket } from "../../Interfaces/interface";
+import { mockData } from "../../MockData/MockData";
+import { deleteProductActionTypesEnum, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "../Types/enums";
+import { getDataActionType } from "../Types/getDataTypes";
 
 export const getDataFetch = () => {
     return async (dispath: Dispatch<getDataActionType>) => {
-        const response = await axios.get<IProducts>(`${BACKEND_HOST}`)
+        const response = mockData
         try {
             dispath({
                 type: GetDataActionTypesEnum.GET_DATA_GOODS,
-                payload: response.data,
+                payload: response,
             })
         } catch (e) {
             dispath({

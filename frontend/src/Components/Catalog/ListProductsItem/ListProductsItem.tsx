@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { BACKEND_HOST } from '../../../Constants/constants'
 import { IProducts } from '../../../Interfaces/interface'
 import style from './ListProductsItem.module.scss'
 import addToBasketIcon from '../../../assets/images/common/basketWhite.svg'
@@ -18,7 +17,7 @@ export const ListProductsItem: FC<itemProps> = ({ item }) => {
         <li className={style.listProductsItem}>
             <div className={style.listProductsItem__wrapperImg}>
                 <Link className={style.listProductsItem__link} to={`/${item.id}`}>
-                    <img src={`${BACKEND_HOST}${item.image.small}`} alt={item.name} className={style.listProductsItem__icon} />
+                    <img src={item.image.small} alt={item.name} className={style.listProductsItem__icon} />
                 </Link>
             </div>
             <div className={style.listProductsItem__description}>

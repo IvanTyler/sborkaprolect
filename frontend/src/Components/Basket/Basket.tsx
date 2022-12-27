@@ -11,7 +11,6 @@ import { IBasket } from '../../Interfaces/interface'
 export const Basket: FC = () => {
 
     const { basket, openSidebarBasket } = useGetData()
-    console.log(basket);
     
     const dispath = useDispatch()
 

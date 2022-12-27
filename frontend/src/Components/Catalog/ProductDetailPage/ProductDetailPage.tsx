@@ -1,6 +1,5 @@
 import { FC, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { BACKEND_HOST } from '../../../Constants/constants';
 import { useGetData } from '../../../Hooks/useGetData';
 import { IProducts } from '../../../Interfaces/interface';
 import style from './ProductDetailPage.module.scss'
@@ -28,7 +27,7 @@ export const ProductDetailPage: FC = () => {
                 <div className={style.sectionProductDetailPage__wrapperImg}>
                     <img
                         className={style.sectionProductDetailPage__img}
-                        src={`${BACKEND_HOST}/${findProduct?.image.big}`}
+                        src={findProduct?.image.big}
                         alt={findProduct?.name}
                     />
                 </div>

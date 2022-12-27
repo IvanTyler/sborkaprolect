@@ -37,10 +37,17 @@
 
     &__title a,
     &__price {
-        font-weight: 700;
         font-size: 14px;
         line-height: 17px;
         color: #000;
+    }
+    
+    &__title a {
+        font-weight: 700;
+    }
+
+    &__price{
+        font-weight: 400;
     }
 
     &__addToBasketPtoduct {

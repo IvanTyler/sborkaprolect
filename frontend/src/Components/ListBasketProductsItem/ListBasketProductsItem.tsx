@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { IBasket } from '../../Interfaces/interface';
-import { BACKEND_HOST } from '../../Constants/constants';
 
 import style from './ListBasketProductsItem.module.scss'
 
@@ -57,7 +56,7 @@ export const ListBasketProductsItem: FC<itemProps> = ({ item }) => {
     return (
         <li className={style.listBasketProductsItem}>
             <div className={style.listBasketProductsItem__basket}>
-                <img className={style.listBasketProductsItem__img} src={`${BACKEND_HOST}${item.image}`} alt={item.name} />
+                <img className={style.listBasketProductsItem__img} src={item.image} alt={item.name} />
                 <div className={style.listBasketProductsItem__description}>
                     <h3 className={style.listBasketProductsItem__title}>
                         {item.name}

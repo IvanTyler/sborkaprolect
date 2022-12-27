@@ -1,6 +1,10 @@
 .listBasketProductsItem {
     &:not(:first-child) {
         margin-top: 64px;
+
+        @media (max-width: 430px) {
+            margin-top: 20px;
+        }
     }
 
     &__basket {
