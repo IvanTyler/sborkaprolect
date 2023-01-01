@@ -17,7 +17,7 @@ import { basketReducer } from "../Reducers/basketReducer";
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['basket']
+    // whitelist: ['basket']
 }
 
 const rootReducer = combineReducers({

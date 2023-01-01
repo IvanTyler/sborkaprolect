@@ -17,3 +17,7 @@ export enum deleteProductActionTypesEnum {
 export enum openSidebarBasketActionEnum {
     OPEN_SIDEBAR = 'OPEN_SIDEBAR',
 }
+
+export enum getDetailProductBasketActionEnum {
+    GET_DETAIL_PRODUCT = 'GET_DETAIL_PRODUCT',
+}

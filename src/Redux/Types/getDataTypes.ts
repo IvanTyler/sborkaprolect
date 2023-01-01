@@ -1,5 +1,5 @@
-import { IBasket } from "../../Interfaces/interface";
-import { deleteProductActionTypesEnum, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "./enums";
+import { IBasket, IProducts } from "../../Interfaces/interface";
+import { deleteProductActionTypesEnum, GetDataActionTypesEnum, getDetailProductBasketActionEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "./enums";
 
 export interface GetDataAction {
     type: GetDataActionTypesEnum.GET_DATA_GOODS;
@@ -40,6 +40,11 @@ export interface deleteProductAction {
     id: number;
 }
 
+export interface getDetailProductAction {
+    type: getDetailProductBasketActionEnum.GET_DETAIL_PRODUCT;
+    product: IProducts;
+}
+
 export interface openSidebarBasketAction {
     type: openSidebarBasketActionEnum.OPEN_SIDEBAR;
     open: boolean;
@@ -52,3 +57,4 @@ export type getDataActionType = GetDataAction
     | decrementCountProductAction
     | deleteProductAction
     | openSidebarBasketAction
+    | getDetailProductAction

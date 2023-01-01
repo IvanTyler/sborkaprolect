@@ -1,5 +1,5 @@
 import { IGetData, initState } from "../initState";
-import { GetDataActionTypesEnum, openSidebarBasketActionEnum } from "../Types/enums";
+import { GetDataActionTypesEnum, getDetailProductBasketActionEnum, openSidebarBasketActionEnum } from "../Types/enums";
 import { getDataActionType } from "../Types/getDataTypes";
 
 export const getDataReducer = (state = initState, action: getDataActionType): IGetData => {
@@ -8,6 +8,8 @@ export const getDataReducer = (state = initState, action: getDataActionType): IG
             return { ...state, products: action.payload }
         case GetDataActionTypesEnum.GET_DATA_ERROR:
             return { ...state, error: action.payload }
+        case getDetailProductBasketActionEnum.GET_DETAIL_PRODUCT:
+            return { ...state, detailProduct: action.product }
         case openSidebarBasketActionEnum.OPEN_SIDEBAR:
             return { ...state, openSidebarBasket: action.open }
         default:

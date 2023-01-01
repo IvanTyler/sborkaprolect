@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
-import { IBasket } from "../../Interfaces/interface";
+import { IBasket, IProducts } from "../../Interfaces/interface";
 import { mockData } from "../../MockData/MockData";
-import { deleteProductActionTypesEnum, GetDataActionTypesEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "../Types/enums";
+import { deleteProductActionTypesEnum, GetDataActionTypesEnum, getDetailProductBasketActionEnum, IncrementDecrementActionTypesEnum, openSidebarBasketActionEnum } from "../Types/enums";
 import { getDataActionType } from "../Types/getDataTypes";
 
 export const getDataFetch = () => {
@@ -24,6 +24,13 @@ export const getDataFetch = () => {
 export const getIDProduct = (product: IBasket) => {
     return {
         type: GetDataActionTypesEnum.GET_PRODUCT,
+        product,
+    }
+}
+
+export const getDetailProduct = (product: IProducts | undefined) => {
+    return {
+        type: getDetailProductBasketActionEnum.GET_DETAIL_PRODUCT,
         product,
     }
 }

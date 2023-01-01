@@ -6,17 +6,25 @@ import style from './ProductDetailPage.module.scss'
 
 import addToBasketIcon from '../../../assets/images/common/basketWhite.svg'
 import { useAddProductToBasket } from '../Common/Hooks/useAddProductToBasket';
+import { useDispatch } from 'react-redux';
+import { getDetailProduct } from '../../../Redux/Action/dataAction';
 
 export const ProductDetailPage: FC = () => {
 
+    const dispath = useDispatch()
+
     const { findProductFunc } = useAddProductToBasket()
 
-    let { idProduct } = useParams()
-    const { products } = useGetData()
+    const { idProduct } = useParams()
+    const { products, detailProduct } = useGetData()
 
-    useEffect(() => { }, [idProduct])
+    const findDetailProduct = products.find((el: IProducts) => el.id === Number(idProduct))
 
-    const findProduct = products.find((el: IProducts) => el.id === Number(idProduct))
+    useEffect(() => { 
+        dispath(getDetailProduct(findDetailProduct))
+    }, [idProduct])
+
+
 
     return (
         <section className={style.sectionProductDetailPage}>
@@ -27,13 +35,13 @@ export const ProductDetailPage: FC = () => {
                 <div className={style.sectionProductDetailPage__wrapperImg}>
                     <img
                         className={style.sectionProductDetailPage__img}
-                        src={findProduct?.image.big}
-                        alt={findProduct?.name}
+                        src={detailProduct?.image.big}
+                        alt={detailProduct?.name}
                     />
                 </div>
                 <figcaption className={style.sectionProductDetailPage__figcaption}>
-                    <h2 className={style.sectionProductDetailPage__title}>{findProduct?.name}</h2>
-                    <span className={style.sectionProductDetailPage__modelNumber}>item model number: {findProduct?.modelNumber}</span>
+                    <h2 className={style.sectionProductDetailPage__title}>{detailProduct?.name}</h2>
+                    <span className={style.sectionProductDetailPage__modelNumber}>item model number: {detailProduct?.modelNumber}</span>
                 </figcaption>
             </figure>
             <div className={style.sectionProductDetailPage__addToBasketPtoduct}>
@@ -44,7 +52,7 @@ export const ProductDetailPage: FC = () => {
                     <img src={addToBasketIcon} alt="add to basket" className={style.header__iconBasket} />
                 </button>
                 <span className={style.sectionProductDetailPage__price}>
-                    $ {findProduct?.price}
+                    $ {detailProduct?.price}
                 </span>
             </div>
         </section>
