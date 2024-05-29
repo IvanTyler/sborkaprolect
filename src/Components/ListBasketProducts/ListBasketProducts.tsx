@@ -9,9 +9,6 @@ export const ListBasketProducts: FC = () => {
 
     let { basket } = useGetData()
 
-    
-
-
     return (
         <ul className={style.listBasketProducts}>
             <List

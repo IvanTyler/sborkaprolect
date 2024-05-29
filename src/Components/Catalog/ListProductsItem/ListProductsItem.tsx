@@ -4,6 +4,7 @@ import { IProducts } from '../../../Interfaces/interface'
 import style from './ListProductsItem.module.scss'
 import addToBasketIcon from '../../../assets/images/common/basketWhite.svg'
 import { useAddProductToBasket } from '../Common/Hooks/useAddProductToBasket'
+import { useGetData } from '../../../Hooks/useGetData'
 
 interface itemProps {
     item: IProducts
@@ -12,6 +13,9 @@ interface itemProps {
 export const ListProductsItem: FC<itemProps> = ({ item }) => {
 
     const { findProductFunc } = useAddProductToBasket()
+    const { basket } = useGetData()
+
+    const isProductInBasket = basket.some((el: any) => el.name === item.name)
 
     return (
         <li className={style.listProductsItem}>
@@ -28,9 +32,13 @@ export const ListProductsItem: FC<itemProps> = ({ item }) => {
                 </h3>
                 <div className={style.listProductsItem__addToBasketPtoduct}>
                     <button
-                        className={style.listProductsItem__buttonAddToBasket}
+                        className={
+                            isProductInBasket ?
+                                style.listProductsItem__buttonAddToBasket + ' ' + style.listProductsItem__disable :
+                                style.listProductsItem__buttonAddToBasket
+                        }
                         onClick={() => findProductFunc(item.id)}
-                        disabled={item.itemInCart}
+                        disabled={isProductInBasket ? !item.itemInCart : item.itemInCart}
                     >
                         <img src={addToBasketIcon} alt="add to basket" className={style.header__iconBasket} />
                     </button>

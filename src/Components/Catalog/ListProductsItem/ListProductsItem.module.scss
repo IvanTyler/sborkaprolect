@@ -75,6 +75,14 @@
         }
     }
 
+    &__disable {
+        background-color: #777;
+
+        &:hover {
+            background-color: darken(#777, 5%)
+        }
+    }
+
     &__price {
         margin-left: 15px;
     }
